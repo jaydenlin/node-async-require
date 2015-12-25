@@ -1,5 +1,5 @@
 {
-  "name": "node-react-templates",
+  "name": "node-async-require",
   "version": "0.1.4",
   "description": "transparently require() react-templates .rt file from node",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:jaydenlin/node-react-templates.git"
+    "url": "git@github.com:jaydenlin/node-async-require.git"
   },
   "keywords": [
     "react-templates",
@@ -18,9 +18,9 @@
   "author": "Jayden Lin <jayden.weiyu@gmail.com> (http://www.jdlin.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jaydenlin/node-react-templates/issues"
+    "url": "https://github.com/jaydenlin/node-async-require/issues"
   },
-  "homepage": "https://github.com/jaydenlin/node-react-templates",
+  "homepage": "https://github.com/jaydenlin/node-async-require",
   "dependencies": {
     "lodash": "3.10.1",
     "mocha": "2.3.4",
