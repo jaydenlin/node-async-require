@@ -1,17 +1,17 @@
-# node-react-templates
+# node-async-require
 
-[![Build Status](https://travis-ci.org/jaydenlin/node-react-templates.svg?branch=master)](https://travis-ci.org/jaydenlin/node-react-templates)
+[![Build Status](https://travis-ci.org/jaydenlin/node-async-require.svg?branch=master)](https://travis-ci.org/jaydenlin/node-async-require)
 
 > Transparently `require()` .rt file from node with [react-templates](http://wix.github.io/react-templates) 
 
 ## Usage
  
-`require('node-react-templates').install()` 
+`require('node-async-require').install()` 
 
 Then you can use .rt file in the react components for server side rendering.
 
 ## Example
-The following is the example that using node-react-templates to render React components from node.
+The following is the example that using node-async-require to render React components from node.
 
 ### React Templates Code --hello.rt
 ```
@@ -42,7 +42,7 @@ module.exports = Hello;
 ```
 var React = require('react/addons');
 require('node-jsx').install();
-require('node-react-templates').install();
+require('node-async-require').install();
 
 var compPath="./hello.jsx";
 
