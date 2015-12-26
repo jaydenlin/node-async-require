@@ -1,7 +1,7 @@
 {
   "name": "node-async-require",
   "version": "0.0.1",
-  "description": "transparently require() react-templates .rt file from node",
+  "description": "transparently require() node modules react-templates .rt file from node",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/index.js"
