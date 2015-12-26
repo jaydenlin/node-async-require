@@ -60,13 +60,65 @@ require("node-async-require").install();
 require("./remote-contents.ajs");
 ```
    
-Then Node.js will fetch the remote contents by the url thet `.ajs` file provides.
+Then Node.js will fetch the remote contents by the url that `.ajs` file provides.
 The remote contents is as following.
 
 ```
 module.export=function(){ console.log("Hello World From Web"); }
 ```
 The contents is a node module. It will be required to Node.js.
+
+
+### Usage with queryString
+
+In some cases, the fixed remote url is not good. You may need to add queryString to fetch diffrent remote contents (node moudle).  
+
+### Example with queryString
+
+###### Step 1. Provide an .ajs file
+
+The file contents of the `.ajs` file is just a single line of url.      
+The follwoing is the example of it.   
+   
+`remote-contents.ajs`
+```
+https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/
+```
+
+######  Step 2. Require the file like this
+
+Require the files in this way. Pass a parameter `queryString` to it.
+
+```js
+require("node-async-require").install({
+	queryString:"en" //pass a parameter to it.
+});
+require("./remote-contents.ajs");
+```
+
+The url you are going to request will append the `queryString` value.
+
+So the actual url will be :
+```
+https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/en
+```
+   
+Then Node.js will fetch the remote contents by the new url.
+The remote contents is as following.
+
+```
+module.export=function(){ console.log("Hello USA From Web"); }
+```
+The contents is a node module. It will be required to Node.js.
+
+
+### Usage with preParser
+
+### Example with preParser
+
+### Usage with preParser (React Teamplates)
+
+### Example with preParser (React Teamplates)
 
 
 ## Test
