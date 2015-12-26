@@ -145,7 +145,7 @@ require("./remote-contents.ajs");
 The original contents will be replaced by preParser.
 So the actual contents will be :
 ```js
-module.exports=function(){ console.log('Replaceed by custom preParser!
+module.exports=function(){ console.log('Replaceed by custom preParser!');}
 ```
 The contents is a node module. It will be required to Node.js.
 
