@@ -114,7 +114,41 @@ The contents is a node module. It will be required to Node.js.
 
 ### Usage with preParser
 
+In some cases, the remote contents you fetch may `not be a pure node moudle`. You need a parser to do some stuffs before Node.js requires it. So you can set up a preParser for the remote contents.
+
 ### Example with preParser
+
+###### Step 1. Provide an .ajs file
+
+The file contents of the `.ajs` file is just a single line of url.      
+The follwoing is the example of it.   
+   
+`remote-contents.ajs`
+```
+https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/
+```
+
+######  Step 2. Require the file like this
+
+Require the files in this way. Pass a parameter `queryString` to it.
+
+```js
+require("node-async-require").install({
+	preParser:function(remoteRawContent){
+		remoteRawContent = "module.exports=function(){ console.log('Replaceed by custom preParser!');}";
+            return remoteRawContent;
+	} //pass a parameter to it.
+});
+require("./remote-contents.ajs");
+```
+
+The original contents will be replaced by preParser.
+So the actual contents will be :
+```js
+module.exports=function(){ console.log('Replaceed by custom preParser!
+```
+The contents is a node module. It will be required to Node.js.
+
 
 ### Usage with preParser (React Teamplates)
 
