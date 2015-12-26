@@ -130,7 +130,7 @@ https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/
 
 ######  Step 2. Require the file like this
 
-Require the files in this way. Pass a parameter `queryString` to it.
+Require the files in this way. Pass a parameter `preParser` to it.
 
 ```js
 require("node-async-require").install({
@@ -152,7 +152,50 @@ The contents is a node module. It will be required to Node.js.
 
 ### Usage with preParser (React Teamplates)
 
+We provide a preparser for pasing react-templates contents.   
+You can use it by setting the `preParser:"rt"`  
+
+```js
+require("node-async-require").install({
+	preParser:"rt" //pass a parameter to it.
+});
+require("./remote-contents-using-react-template.ajs");
+```
+
+
 ### Example with preParser (React Teamplates)
+
+###### Step 1. Provide an .ajs file
+
+The file contents of the `.ajs` file is just a single line of url.      
+The follwoing is the example of it.   
+   
+`remote-contents-using-react-template.ajs`
+```
+https://jaydenlin.github.io/fake-remote-contents-for-test/contents/react-template/
+```
+
+######  Step 2. Require the file like this
+
+Require the files in this way. Pass a parameter `preParser` to it.
+And set the value to `rt`.
+
+```js
+require("node-async-require").install({
+	preParser:"rt" //pass a parameter to it.
+});
+require("./remote-contents-using-react-template.ajs");
+```
+
+The remote contents of the url is the react-template as following.  
+```
+<div>
+  <h3>Hello World Form Web</h3>
+</div>
+```
+
+The react-template contents will be parsed to the pure node module.
+And, it will be required to Node.js.
 
 
 ## Test
