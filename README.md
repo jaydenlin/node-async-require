@@ -31,27 +31,30 @@ npm install --save node-async-require-loader
 ```
 
 * Use directly in the js file. 
-```
+```js
 require("node-async-require").install();
-
 ```
 
 ### Example of Basic Usage
+
+###### Step 1. Provide an .ajs file
+
+The file contents of the `.ajs` file is just a single line of url.      
+The follwoing is the example of it.   
+   
+   
+`remote-contents.ajs`
+```
+https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/
+```
+
+######  Step 2. Require the file like this
 
 Require the files in this way.
 
 ```js
 require("node-async-require").install();
 require("./remote-contents.ajs");
-
-```
-
-The file contents of the `remote-contents.ajs` is just a single line of url.   
-
-   
-`remote-contents.ajs`
-```
-https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/
 ```
    
 Then Node.js will fetch the remote contents by the url `.ajs` provides.
