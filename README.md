@@ -5,7 +5,7 @@
 > Transparently `require()` remote contents (node moudles) in server-side Node.js !
  
 ```
-npm install --save node-async-require-loader
+npm install --save node-async-require
 ```
 
 ### Concept
@@ -28,7 +28,7 @@ Fetch the remote contnets (node module) by http GET and require codes in Node.js
 
 * Install this moudle
 ```
-npm install --save node-async-require-loader
+npm install --save node-async-require
 ```
 
 * Use directly in the js file. 
