@@ -63,7 +63,7 @@ require("./remote-contents.ajs");
 Then Node.js will fetch the remote contents by the url that `.ajs` file provides.
 The remote contents is as following.
 
-```
+```js
 module.export=function(){ console.log("Hello World From Web"); }
 ```
 The contents is a node module. It will be required to Node.js.
@@ -106,7 +106,7 @@ https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/en
 Then Node.js will fetch the remote contents by the new url.
 The remote contents is as following.
 
-```
+```js
 module.export=function(){ console.log("Hello USA From Web"); }
 ```
 The contents is a node module. It will be required to Node.js.
@@ -188,7 +188,7 @@ require("./remote-contents-using-react-template.ajs");
 ```
 
 The remote contents of the url is the react-template as following.  
-```
+```html
 <div>
   <h3>Hello World Form Web</h3>
 </div>
