@@ -26,6 +26,7 @@ I made up the file with `.ajs` extention.
 Fetch the remote contnets (node module) by http GET and require codes in Node.js.  
 `.ajs` extention is only for `require.extention` to recognize the file.  
 
+* Install this moudle
 ```
 npm install --save node-async-require-loader
 ```
@@ -33,15 +34,17 @@ npm install --save node-async-require-loader
 * Use directly in the js file. 
 ```js
 require("node-async-require").install();
+require("./remote-contents.ajs");//You can require any filename you want with .ajs extention
 ```
 
+> You may wondering what '.ajs' file is. The file contents of the `.ajs` file is just a single line of url. The remote url that provides contents(node moudle). The `.ajs` extention is only for the loader to recognize the file.
+   
 ### Example of Basic Usage
 
 ###### Step 1. Provide an .ajs file
 
 The file contents of the `.ajs` file is just a single line of url.      
 The follwoing is the example of it.   
-   
    
 `remote-contents.ajs`
 ```
@@ -57,7 +60,8 @@ require("node-async-require").install();
 require("./remote-contents.ajs");
 ```
    
-Then Node.js will fetch the remote contents by the url `.ajs` provides.
+Then Node.js will fetch the remote contents by the url thet `.ajs` file provides.
+The remote contents is as following.
 
 ```
 module.export=function(){ console.log("Hello World From Web"); }
