@@ -109,7 +109,6 @@ The url you are going to request will append the `queryString` value.
 
 So the actual url will be :
 ```
-```js
 https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/en
 ```
    
