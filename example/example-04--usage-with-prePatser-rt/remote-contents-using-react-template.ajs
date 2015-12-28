@@ -1,0 +1,3 @@
+module.exports={
+	remoteUrl:"https://jaydenlin.github.io/fake-remote-contents-for-test/contents/react-template/"
+}

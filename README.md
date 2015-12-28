@@ -12,7 +12,12 @@ npm install --save node-async-require
 Fetch the remote contnets (node module) by http GET and require codes in Node.js.   
 I made up the file with `.ajs` extention.
 * Only for the `require.extention` to recognize the file.
-* The file contents is only a remote url.
+* The file contents is a node moudle provides a remote url.
+```js
+module.exports={
+   remoteUrl:"www.xxx.xxx/api/"
+}
+```
 * Node.js will fetch the contents by the remote url and require codes into local.
 
 ### Highlight
@@ -37,18 +42,20 @@ require("node-async-require").install();
 require("./remote-contents.ajs");//You can require any filename you want with .ajs extention
 ```
 
-> You may wondering what '.ajs' file is. The file contents of the `.ajs` file is just a single line of url. The remote url that provides contents(node moudle). The `.ajs` extention is only for the loader to recognize the file.
+> You may wondering what '.ajs' file is. The file contents of the `.ajs` file is a node moudle providing a remote url. The remote url that provides contents(node moudle). The `.ajs` extention is only for the loader to recognize the file.
    
 ### Example of Basic Usage
 
 ###### Step 1. Provide an .ajs file
 
-The file contents of the `.ajs` file is just a single line of url.      
+The file contents of the `.ajs` file is a node moudle providing a remote url.      
 The follwoing is the example of it.   
    
 `remote-contents.ajs`
-```
-https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/
+```js
+module.exports={
+   remoteUrl:"https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/"
+}
 ```
 
 ######  Step 2. Require the file like this
@@ -64,7 +71,7 @@ Then Node.js will fetch the remote contents by the url that `.ajs` file provides
 The remote contents is as following.
 
 ```js
-module.export=function(){ console.log("Hello World From Web"); }
+module.exports=function(){ console.log("Hello World From Web"); }
 ```
 The contents is a node module. It will be required to Node.js.
 
@@ -77,12 +84,14 @@ In some cases, the fixed remote url is not good. You may need to add queryString
 
 ###### Step 1. Provide an .ajs file
 
-The file contents of the `.ajs` file is just a single line of url.      
+The file contents of the `.ajs` file is a node moudle providing a remote url.      
 The follwoing is the example of it.   
    
 `remote-contents.ajs`
-```
-https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/
+```js
+module.exports={
+   remoteUrl:"https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/"
+}
 ```
 
 ######  Step 2. Require the file like this
@@ -100,6 +109,7 @@ The url you are going to request will append the `queryString` value.
 
 So the actual url will be :
 ```
+```js
 https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/en
 ```
    
@@ -120,12 +130,15 @@ In some cases, the remote contents you fetch may `not be a pure node moudle`. Yo
 
 ###### Step 1. Provide an .ajs file
 
-The file contents of the `.ajs` file is just a single line of url.      
+The file contents of the `.ajs` file is a node moudle providing a remote url.      
 The follwoing is the example of it.   
    
 `remote-contents.ajs`
 ```
-https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/
+```js
+module.exports={
+   remoteUrl:"https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/"
+}
 ```
 
 ######  Step 2. Require the file like this
@@ -167,12 +180,15 @@ require("./remote-contents-using-react-template.ajs");
 
 ###### Step 1. Provide an .ajs file
 
-The file contents of the `.ajs` file is just a single line of url.      
+The file contents of the `.ajs` file is a node moudle providing a remote url.      
 The follwoing is the example of it.   
    
 `remote-contents-using-react-template.ajs`
 ```
-https://jaydenlin.github.io/fake-remote-contents-for-test/contents/react-template/
+```js
+module.exports={
+   remoteUrl:"https://jaydenlin.github.io/fake-remote-contents-for-test/contents/react-template/"
+}
 ```
 
 ######  Step 2. Require the file like this

@@ -1,9 +1,6 @@
 var React = require('react/addons');
 require('node-jsx').install();
-require('../index').install({
-	preParser: "rt"
-});
-
+require('../index').install();
 module.exports = function render(componentFilePath) {
 	// body...
 	var component = require(componentFilePath);
