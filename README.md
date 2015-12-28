@@ -15,7 +15,7 @@ I made up the file with `.ajs` extention.
 * The file contents is a node moudle that provides a remote url.
 ```js
 module.exports={
-   remoteUrl:"www.xxx.xxx/api/"
+   remoteUrl:"xxx.xxx.xxx/api/"
 }
 ```
 * Node.js will fetch the contents by the remote url and require codes into local.
@@ -183,7 +183,7 @@ The file contents of the `.ajs` file is a node moudle providing a remote url.
 The follwoing is the example of it.   
    
 `remote-contents-using-react-template.ajs`
-```
+
 ```js
 module.exports={
    remoteUrl:"https://jaydenlin.github.io/fake-remote-contents-for-test/contents/react-template/"
