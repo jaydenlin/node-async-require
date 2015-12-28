@@ -10,6 +10,10 @@ function install(options) {
     return;
   }
 
+  if (typeof options === "undefined") {
+    options = {};
+  }
+
   require.extensions['.ajs'] = function(module, filename) {
 
     ///////////////////////
@@ -31,6 +35,7 @@ function install(options) {
       throw new Error('The .ajs file must return a remoteUrl');
     }
 
+
     ///////////////////////
     ///Set up the preParser
     ///////////////////////
@@ -49,6 +54,8 @@ function install(options) {
       }
 
     }
+
+
 
     //////////////////////////
     ///Set up the async value
@@ -74,8 +81,9 @@ function install(options) {
     if (async === true) {
       //Fetch the remote contents
       var nodeMoudleUrl = content.remoteUrl + queryString;
+
       var res = requestSync('GET', nodeMoudleUrl);
-      var rawContent = res.getBody();
+      var rawContent = res.getBody('utf8');
       //use preParser 
       var source = preParser(rawContent);
 
@@ -98,6 +106,12 @@ function install(options) {
   installed = true;
 }
 
+function uninstall() {
+  installed = false;
+  require.extensions['.ajs'] = null;
+}
+
 module.exports = {
-  install: install
+  install: install,
+  uninstall: uninstall
 };
