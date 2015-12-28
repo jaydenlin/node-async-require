@@ -15,7 +15,7 @@ I made up the file with `.ajs` extention.
 * The file contents is a node moudle that provides a remote url.
 ```js
 module.exports={
-   remoteUrl:"xxx.xxx.xxx/api/"
+   remoteUrl:"http://xxx.xxx.xxx/api/"
 }
 ```
 * Node.js will fetch the contents by the remote url and require codes into local.
