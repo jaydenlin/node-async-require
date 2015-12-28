@@ -1,1 +1,1 @@
-module.exports = require("./remote-content-using-react-template.ajs");
+module.exports = require("./remote-contents-using-react-template.ajs");

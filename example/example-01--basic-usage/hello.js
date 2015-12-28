@@ -1,1 +1,1 @@
-module.exports = require("./remote-content.ajs");
+module.exports = require("./remote-contents.ajs");
