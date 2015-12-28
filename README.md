@@ -12,7 +12,7 @@ npm install --save node-async-require
 Fetch the remote contnets (node module) by http GET and require codes in Node.js.   
 I made up the file with `.ajs` extention.
 * Only for the `require.extention` to recognize the file.
-* The file contents is a node moudle provides a remote url.
+* The file contents is a node moudle that provides a remote url.
 ```js
 module.exports={
    remoteUrl:"www.xxx.xxx/api/"
