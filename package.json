@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/jaydenlin/node-async-require",
   "dependencies": {
+    "eval": "0.1.1",
     "lodash": "3.10.1",
     "mocha": "2.3.4",
     "node-jsx": "0.13.3",

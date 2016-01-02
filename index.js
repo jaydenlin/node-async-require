@@ -1,6 +1,7 @@
 var fs = require('fs');
 var requestSync = require('sync-request');
 var __ = require("lodash");
+var _eval = require("eval");
 
 
 var installed = false;
@@ -24,7 +25,7 @@ function install(options) {
     });
 
     try {
-      content = eval(content);
+      content = _eval(content);
     } catch (e) {
       throw new Error('The .ajs file is not a valid js. ' + e.toString());
     }
