@@ -162,7 +162,7 @@ module.exports=function(){ console.log('Replaceed by custom preParser!');}
 The contents is a node module. It will be required to Node.js.
 
 
-### Usage with preParser (React Teamplates)
+### Usage with preParser (React Templates)
 
 We provide a preparser for pasing react-templates contents.   
 You can use it by setting the `preParser:"rt"`  
@@ -175,7 +175,7 @@ require("./remote-contents-using-react-template.ajs");
 ```
 
 
-### Example with preParser (React Teamplates)
+### Example with preParser (React Templates)
 
 ###### Step 1. Provide an .ajs file
 
