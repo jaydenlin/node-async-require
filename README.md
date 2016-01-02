@@ -14,8 +14,8 @@ I made up the file with `.ajs` extention.
 * Only for the `require.extention` to recognize the file.
 * The file contents is a node moudle that provides a remote url.
 ```js
-module.exports={
-   remoteUrl:"http://xxx.xxx.xxx/api/"
+module.exports = {
+   remoteUrl : "http://xxx.xxx.xxx/api/"
 }
 ```
 * Node.js will fetch the contents by the remote url and require codes into local.
@@ -53,8 +53,8 @@ The follwoing is the example of it.
    
 `remote-contents.ajs`
 ```js
-module.exports={
-   remoteUrl:"https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/"
+module.exports = {
+   remoteUrl : "https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/"
 }
 ```
 
@@ -89,8 +89,8 @@ The follwoing is the example of it.
    
 `remote-contents.ajs`
 ```js
-module.exports={
-   remoteUrl:"https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/"
+module.exports = {
+   remoteUrl : "https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/"
 }
 ```
 
@@ -135,8 +135,8 @@ The follwoing is the example of it.
 `remote-contents.ajs`
 ```
 ```js
-module.exports={
-   remoteUrl:"https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/"
+module.exports = {
+   remoteUrl : "https://jaydenlin.github.io/fake-remote-contents-for-test/contents/pure-js/"
 }
 ```
 
@@ -185,8 +185,8 @@ The follwoing is the example of it.
 `remote-contents-using-react-template.ajs`
 
 ```js
-module.exports={
-   remoteUrl:"https://jaydenlin.github.io/fake-remote-contents-for-test/contents/react-template/"
+module.exports = {
+   remoteUrl : "https://jaydenlin.github.io/fake-remote-contents-for-test/contents/react-template/"
 }
 ```
 
