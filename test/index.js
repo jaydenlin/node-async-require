@@ -11,7 +11,7 @@ describe('Test Remote Contents in Node.js', function() {
 		assert.equal(nodeModule.toString(), 'function (){ console.log("Hello World From Web"); }');
 	});
 
-	it('should return correct function with the required .ajs file and queryString=en', function() {
+	it.only('should return correct function with the required .ajs file and queryString=en', function() {
 		nodeAsycRequire.install({
 			queryString: "en"
 		});
@@ -43,6 +43,18 @@ describe('Test Remote Contents in Node.js', function() {
 		//console.log(nodeModule.toString().replace(/\r|\n/ig, ""));
 		assert.equal(Object.prototype.toString.call(nodeModule), '[object Function]');
 		assert.equal(nodeModule.toString().replace(/\r|\n/ig, ""), "function () {    return React.createElement('div', {}, React.createElement('h3', {}, 'Hello World Form Web'));}");
+
+	});
+
+	it.only('should return correct function with the required .ajs file and custom preParser=mutipleRts', function() {
+		nodeAsycRequire.install({
+			preParser: "mutipleRts"
+		});
+		var nodeModule = require("../example/example-05--usage-with-prePatser-mutiple-rt/hello.js");
+		nodeAsycRequire.uninstall();
+		//console.log(nodeModule.toString().replace(/\r|\n/ig, ""));
+		assert.equal(Object.prototype.toString.call(nodeModule['A']), '[object Function]');
+		assert.equal(nodeModule['A'].toString().replace(/\r|\n/ig, ""), "function () {    return React.createElement('h3', {}, ' Hello World Form Web A ');}");
 
 	});
 });

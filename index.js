@@ -48,6 +48,9 @@ function install(options) {
         case "rt":
           preParser = require("./preParser/reactTemplate.js");
           break;
+        case "mutipleRts":
+          preParser = require("./preParser/mutipleReactTemplates.js");
+          break;
         default:
           preParser = function(rawContent) {
             return rawContent;
@@ -87,6 +90,8 @@ function install(options) {
       var rawContent = res.getBody('utf8');
       //use preParser 
       var source = preParser(rawContent);
+
+      console.log(source);
 
       module._compile(source, filename);
     } else {
