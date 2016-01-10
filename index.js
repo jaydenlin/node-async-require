@@ -91,8 +91,6 @@ function install(options) {
       //use preParser 
       var source = preParser(rawContent);
 
-      console.log(source);
-
       module._compile(source, filename);
     } else {
       //Fetch loacl file
