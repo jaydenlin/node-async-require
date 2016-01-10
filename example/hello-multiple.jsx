@@ -1,6 +1,6 @@
 var React = require('react/addons');
  
-var helloTemplate = require("./hello-mutiple.ajs")['A'];
+var helloTemplate = require("./hello-multiple.ajs")['A'];
  
 var Hello = React.createClass({
   

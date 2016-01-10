@@ -49,11 +49,11 @@ describe('Test Remote Contents in Node.js', function() {
 
 	});
 
-	it('should return correct function with the required .ajs file and custom preParser=mutipleRts', function() {
+	it('should return correct function with the required .ajs file and custom preParser=multipleRts', function() {
 		nodeAsycRequire.install({
-			preParser: "mutipleRts"
+			preParser: "multipleRts"
 		});
-		var nodeModule = require("../example/example-05--usage-with-prePatser-mutiple-rt/hello.js");
+		var nodeModule = require("../example/example-05--usage-with-prePatser-multiple-rt/hello.js");
 		nodeAsycRequire.uninstall();
 		//console.log(nodeModule.toString().replace(/\r|\n/ig, ""));
 		assert.equal(Object.prototype.toString.call(nodeModule['A']), '[object Function]');
@@ -75,13 +75,13 @@ describe('Test Server-side Rendering with Remote Contents in Node.js', function(
 		assert.equal(contents, "<div><h3>Hello World Form Web</h3></div>");
 		//assert.equal(-1, [1,2,3].indexOf(0));
 	});
-	it('should return correct html with the required .ajs file with mutipleRts', function() {
+	it('should return correct html with the required .ajs file with multipleRts', function() {
 
 		require('node-jsx').install();
 		require('../index').install({
-			preParser: "mutipleRts"
+			preParser: "multipleRts"
 		});
-		var component = require("../example/hello-mutiple.jsx");
+		var component = require("../example/hello-multiple.jsx");
 		var contents = React.renderToStaticMarkup(React.createElement(component));
 		nodeAsycRequire.uninstall();
 		assert.equal(contents, "<h3> Hello World Form Web A </h3>");

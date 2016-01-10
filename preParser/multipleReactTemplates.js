@@ -7,15 +7,15 @@ module.exports = function(rawContents) {
 		var rawContents = JSON.parse(rawContents);
 
 	} catch (e) {
-		throw new Error("Error mutiple reactTemplates's contents need to be a JSON format: " + e.toString());
+		throw new Error("Error multiple reactTemplates's contents need to be a JSON format: " + e.toString());
 	}
 
 	rawContents.map(function(rawContent) {
 		if (typeof rawContent.content === "undefined") {
-			throw new Error("mutiple reactTemplates's each content format need 'content' property");
+			throw new Error("multiple reactTemplates's each content format need 'content' property");
 		}
 		if (typeof rawContent.name === "undefined") {
-			throw new Error("mutiple reactTemplates's each  content format need 'name' property");
+			throw new Error("multiple reactTemplates's each  content format need 'name' property");
 		}
 
 		try {
@@ -25,7 +25,7 @@ module.exports = function(rawContents) {
 			}).replace("module.exports = ", "module.exports['" + rawContent.name + "'] = ");
 
 		} catch (e) {
-			throw new Error('Error mutiple reactTemplates preParser fail to JS: ' + e.toString());
+			throw new Error('Error multiple reactTemplates preParser fail to JS: ' + e.toString());
 		}
 
 	});
