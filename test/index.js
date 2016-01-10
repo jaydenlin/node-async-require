@@ -3,6 +3,9 @@ var React = require('react/addons');
 var nodeAsycRequire = require('../index');
 
 describe('Test Remote Contents in Node.js', function() {
+	before(function() {
+		this.timeout(500000);
+	});
 	it('should return correct function with the required .ajs file', function() {
 		nodeAsycRequire.install();
 		var nodeModule = require("../example/example-01--basic-usage/hello.js");
@@ -11,7 +14,7 @@ describe('Test Remote Contents in Node.js', function() {
 		assert.equal(nodeModule.toString(), 'function (){ console.log("Hello World From Web"); }');
 	});
 
-	it.only('should return correct function with the required .ajs file and queryString=en', function() {
+	it('should return correct function with the required .ajs file and queryString=en', function() {
 		nodeAsycRequire.install({
 			queryString: "en"
 		});
@@ -46,7 +49,7 @@ describe('Test Remote Contents in Node.js', function() {
 
 	});
 
-	it.only('should return correct function with the required .ajs file and custom preParser=mutipleRts', function() {
+	it('should return correct function with the required .ajs file and custom preParser=mutipleRts', function() {
 		nodeAsycRequire.install({
 			preParser: "mutipleRts"
 		});
@@ -70,6 +73,18 @@ describe('Test Server-side Rendering with Remote Contents in Node.js', function(
 		var contents = React.renderToStaticMarkup(React.createElement(component));
 		nodeAsycRequire.uninstall();
 		assert.equal(contents, "<div><h3>Hello World Form Web</h3></div>");
+		//assert.equal(-1, [1,2,3].indexOf(0));
+	});
+	it('should return correct html with the required .ajs file with mutipleRts', function() {
+
+		require('node-jsx').install();
+		require('../index').install({
+			preParser: "mutipleRts"
+		});
+		var component = require("../example/hello-mutiple.jsx");
+		var contents = React.renderToStaticMarkup(React.createElement(component));
+		nodeAsycRequire.uninstall();
+		assert.equal(contents, "<h3> Hello World Form Web A </h3>");
 		//assert.equal(-1, [1,2,3].indexOf(0));
 	});
 });
