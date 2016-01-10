@@ -1,6 +1,6 @@
 {
   "name": "node-async-require",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Transparently require() remote contents (node moudles) in Node.js !",
   "main": "index.js",
   "scripts": {
