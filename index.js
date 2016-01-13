@@ -90,7 +90,7 @@ function install(options) {
       var rawContent = res.getBody('utf8');
       //use preParser
       var source;
-      if(options.preParser.length > 0 && options.preParser === "multipleRts" && typeof(options.useUnescape)!=='undefined' && options.useUnescape){
+      if(typeof(options.useUnescape)!=='undefined' && options.useUnescape){
         source = preParser(rawContent, true);
       }else{
         source = preParser(rawContent);
