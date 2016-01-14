@@ -1,0 +1,3 @@
+module.exports={
+	remoteUrl:"http://man27382210.github.io/fake-content/node-require-content/"
+}

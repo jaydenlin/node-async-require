@@ -88,8 +88,14 @@ function install(options) {
 
       var res = requestSync('GET', nodeMoudleUrl);
       var rawContent = res.getBody('utf8');
-      //use preParser 
-      var source = preParser(rawContent);
+      //use preParser
+      var source;
+      if(typeof(options.useUnescape)!=='undefined' && options.useUnescape){
+        source = preParser(rawContent, true);
+      }else{
+        source = preParser(rawContent);
+      }
+      
 
       module._compile(source, filename);
     } else {

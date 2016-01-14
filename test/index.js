@@ -60,6 +60,19 @@ describe('Test Remote Contents in Node.js', function() {
 		assert.equal(nodeModule['A'].toString().replace(/\r|\n/ig, ""), "function () {    return React.createElement('h3', {}, ' Hello World Form Web A ');}");
 
 	});
+
+	it('should return correct function with the required .ajs file and custom preParser=multipleRts and useUnescape=true', function() {
+		nodeAsycRequire.install({
+			preParser: "multipleRts",
+			useUnescape: true
+		});
+		var nodeModule = require("../example/example-06--usage-with-prePatser-multiple-rt-unescape/hello.js");
+		nodeAsycRequire.uninstall();
+		//console.log(nodeModule.toString().replace(/\r|\n/ig, ""));
+		assert.equal(Object.prototype.toString.call(nodeModule['A']), '[object Function]');
+		assert.equal(nodeModule['A'].toString().replace(/\r|\n/ig, ""), "function () {    return React.createElement('h3', {}, ' Hello World Form Web A ');}");
+
+	});
 });
 
 describe('Test Server-side Rendering with Remote Contents in Node.js', function() {
