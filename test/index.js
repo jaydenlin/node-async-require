@@ -95,7 +95,7 @@ describe('Test Server-side Rendering with Remote Contents in Node.js', function(
 			preParser: "multipleRts"
 		});
 		var component = require("../example/hello-multiple.jsx");
-		var contents = React.renderToStaticMarkup(React.createElement(component));
+		var contents = React.renderToStaticMarkup(React.createElement(component,{id:"A"}));
 		nodeAsycRequire.uninstall();
 		assert.equal(contents, "<h3> Hello World Form Web A </h3>");
 		//assert.equal(-1, [1,2,3].indexOf(0));
