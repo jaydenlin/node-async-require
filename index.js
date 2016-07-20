@@ -64,8 +64,8 @@ function install(options) {
     //////////////////////////
     ///Set up the async value
     //////////////////////////
-    var async = options.async === false ? false : true;
-    if (async === false) {
+    var isAsync = options.async === false ? false : true;
+    if (isAsync === false) {
       if (typeof content.localPath === "undefined") {
         throw new Error('The .ajs file must return a localPath, when you set async=false');
       }
@@ -82,7 +82,7 @@ function install(options) {
     ////////////////////////////////////////////
     ///Fetch the remote contents or local file
     ///////////////////////////////////////////
-    if (async === true) {
+    if (isAsync === true) {
       //Fetch the remote contents
       var nodeMoudleUrl = content.remoteUrl + queryString;
 
