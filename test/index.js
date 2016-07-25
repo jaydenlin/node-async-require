@@ -1,6 +1,6 @@
 var assert = require('assert');
 var React = require('react/addons');
-var nodeAsycRequire = require('../index');
+var nodeAsycRequire = require('../lib');
 
 describe('Test Remote Contents in Node.js', function() {
 	before(function() {
@@ -79,7 +79,7 @@ describe('Test Server-side Rendering with Remote Contents in Node.js', function(
 	it('should return correct html with the required .ajs file', function() {
 
 		require('node-jsx').install();
-		require('../index').install({
+		require('../lib').install({
 			preParser: "rt"
 		});
 		var component = require("../example/hello.jsx");
@@ -91,7 +91,7 @@ describe('Test Server-side Rendering with Remote Contents in Node.js', function(
 	it('should return correct html with the required .ajs file with multipleRts', function() {
 
 		require('node-jsx').install();
-		require('../index').install({
+		require('../lib').install({
 			preParser: "multipleRts"
 		});
 		var component = require("../example/hello-multiple.jsx");
