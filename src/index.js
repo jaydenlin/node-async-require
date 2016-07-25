@@ -42,10 +42,10 @@ function install(options) {
     if (Object.prototype.toString.call(preParser) !== '[object Function]') {
       switch (preParser) {
         case 'rt':
-          preParser = require('./preParser/reactTemplate.js');
+          preParser = require('../preParser/reactTemplate.js');
           break;
         case 'multipleRts':
-          preParser = require('./preParser/multipleReactTemplates.js');
+          preParser = require('../preParser/multipleReactTemplates.js');
           break;
         default:
           preParser = function (rawContent) {
