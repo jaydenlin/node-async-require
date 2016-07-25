@@ -1,116 +1,102 @@
-var fs = require('fs');
-var requestSync = require('sync-request');
-var __ = require("lodash");
-var _eval = require("eval");
+const fs = require('fs');
+const requestSync = require('sync-request');
+const _eval = require('eval');
 
-
-var installed = false;
+let installed = false;
 
 function install(options) {
   if (installed) {
     return;
   }
 
-  if (typeof options === "undefined") {
-    options = {};
+  if (typeof options === 'undefined') {
+    options = {}; // eslint-disable-line no-param-reassign
   }
 
-  require.extensions['.ajs'] = function(module, filename) {
-
-    ///////////////////////
-    ///Set up .ajs content
-    ///////////////////////
-    var content = fs.readFileSync(filename, {
-      encoding: 'utf8'
+  require.extensions['.ajs'] = function (module, filename) {
+    /**
+     * Set up .ajs content
+     */
+    let content = fs.readFileSync(filename, {
+      encoding: 'utf8',
     });
 
     try {
       content = _eval(content);
     } catch (e) {
-      throw new Error('The .ajs file is not a valid js. ' + e.toString());
+      throw new Error(`The .ajs file is not a valid js. ${e}`);
     }
 
     if (Object.prototype.toString.call(content) !== '[object Object]') {
       throw new Error('The .ajs file does not return a valid json');
-    } else if (typeof content.remoteUrl === "undefined") {
+    } else if (typeof content.remoteUrl === 'undefined') {
       throw new Error('The .ajs file must return a remoteUrl');
     }
 
+    /**
+     * Set up the preParser
+     */
+    let preParser = options.preParser || '';
 
-    ///////////////////////
-    ///Set up the preParser
-    ///////////////////////
-    var preParser = options.preParser || "";
-
-    //if the preParser is not a function, the use the buildt-in preParsers
+    // if the preParser is not a function, the use the buildt-in preParsers
     if (Object.prototype.toString.call(preParser) !== '[object Function]') {
       switch (preParser) {
-        case "rt":
-          preParser = require("./preParser/reactTemplate.js");
+        case 'rt':
+          preParser = require('./preParser/reactTemplate.js');
           break;
-        case "multipleRts":
-          preParser = require("./preParser/multipleReactTemplates.js");
+        case 'multipleRts':
+          preParser = require('./preParser/multipleReactTemplates.js');
           break;
         default:
-          preParser = function(rawContent) {
+          preParser = function (rawContent) {
             return rawContent;
           };
       }
-
     }
 
-
-
-    //////////////////////////
-    ///Set up the async value
-    //////////////////////////
-    var isAsync = options.async === false ? false : true;
-    if (isAsync === false) {
-      if (typeof content.localPath === "undefined") {
+    /**
+     * Set up the async value
+     */
+    const isAsync = !!options.async || options.async === undefined;
+    if (!isAsync) {
+      if (typeof content.localPath === 'undefined') {
         throw new Error('The .ajs file must return a localPath, when you set async=false');
       }
     }
 
+    /**
+     * Set up the queryString
+     */
+    const queryString = options.queryString || '';
 
 
-    //////////////////////////
-    ///Set up the queryString
-    //////////////////////////
-    var queryString = options.queryString || "";
-
-
-    ////////////////////////////////////////////
-    ///Fetch the remote contents or local file
-    ///////////////////////////////////////////
+    /**
+     * Fetch the remote contents or local file
+     */
     if (isAsync === true) {
-      //Fetch the remote contents
-      var nodeMoudleUrl = content.remoteUrl + queryString;
+      // Fetch the remote contents
+      const nodeMoudleUrl = content.remoteUrl + queryString;
 
-      var res = requestSync('GET', nodeMoudleUrl);
-      var rawContent = res.getBody('utf8');
-      //use preParser
-      var source;
-      if(typeof(options.useUnescape)!=='undefined' && options.useUnescape){
+      const res = requestSync('GET', nodeMoudleUrl);
+      const rawContent = res.getBody('utf8');
+      // use preParser
+      let source;
+      if (typeof options.useUnescape !== 'undefined' && options.useUnescape) {
         source = preParser(rawContent, true);
-      }else{
+      } else {
         source = preParser(rawContent);
       }
-      
 
       module._compile(source, filename);
     } else {
-      //Fetch loacl file
-      var rawContent = fs.readFileSync(content.localPath, {
-        encoding: 'utf8'
+      // Fetch loacl file
+      const rawContent = fs.readFileSync(content.localPath, {
+        encoding: 'utf8',
       });
-      //use preParser 
-      var source = preParser(rawContent);
+      // use preParser
+      const source = preParser(rawContent);
       module._compile(source, filename);
-
     }
-
-
-
   };
 
   installed = true;
@@ -122,6 +108,6 @@ function uninstall() {
 }
 
 module.exports = {
-  install: install,
-  uninstall: uninstall
+  install,
+  uninstall,
 };
