@@ -2,17 +2,17 @@
 
 [![Build Status](https://travis-ci.org/jaydenlin/node-async-require.svg?branch=master)](https://travis-ci.org/jaydenlin/node-async-require)
 
-> Transparently `require()` remote contents (node moudles) in server-side Node.js !
+> Transparently `require()` remote contents (node modules) in server-side Node.js !
  
 ```
 npm install --save node-async-require
 ```
 
 ### Concept
-Fetch the remote contnets (node module) by http GET and require codes in Node.js.   
-I made up the file with `.ajs` extention.
-* Only for the `require.extention` to recognize the file.
-* The file contents is a node moudle that provides a remote url.
+Fetch the remote contents (node module) by http GET and require codes in Node.js.   
+I made up the file with `.ajs` extension.
+* Only for the `require.extension` to recognize the file.
+* The file contents is a node module that provides a remote url.
 ```js
 module.exports = {
    remoteUrl : "http://xxx.xxx.xxx/api/"
@@ -21,17 +21,17 @@ module.exports = {
 * Node.js will fetch the contents by the remote url and require codes into local.
 
 ### Highlight
-* Provid the `PreParser` config for parsing remote contents before Node.js requires it.
-* Privde the `queryString` config for fetching diffrent remote contents.
+* Provide the `PreParser` config for parsing remote contents before Node.js requires it.
+* Provide the `queryString` config for fetching different remote contents.
 * Provide the `PreParser` for [react-templates](http://wix.github.io/react-templates)!
 * How about isomorphic `require()` on client-side ? We got [node-async-require-loader](https://github.com/jaydenlin/node-async-require-loader) with webpack for it ! 
 
 ### Basic Usage
 
-Fetch the remote contnets (node module) by http GET and require codes in Node.js.  
-`.ajs` extention is only for `require.extention` to recognize the file.  
+Fetch the remote contents (node module) by http GET and require codes in Node.js.  
+`.ajs` extension is only for `require.extension` to recognize the file.  
 
-* Install this moudle
+* Install this module
 ```
 npm install --save node-async-require
 ```
@@ -39,17 +39,17 @@ npm install --save node-async-require
 * Use directly in the js file. 
 ```js
 require("node-async-require").install();
-require("./remote-contents.ajs");//You can require any filename you want with .ajs extention
+require("./remote-contents.ajs"); //You can require any filename you want with .ajs extension
 ```
 
-> You may wondering what '.ajs' file is. The file contents of the `.ajs` file is a node moudle providing a remote url. The remote url that provides contents(node moudle). The `.ajs` extention is only for the loader to recognize the file.
+> You may wondering what '.ajs' file is. The file contents of the `.ajs` file is a node module providing a remote url. The remote url that provides contents(node module). The `.ajs` extension is only for the loader to recognize the file.
    
 ### Example of Basic Usage
 
 ###### Step 1. Provide an .ajs file
 
-The file contents of the `.ajs` file is a node moudle providing a remote url.      
-The follwoing is the example of it.   
+The file contents of the `.ajs` file is a node module providing a remote url.      
+The following is the example of it.   
    
 `remote-contents.ajs`
 ```js
@@ -78,14 +78,14 @@ The contents is a node module. It will be required to Node.js.
 
 ### Usage with queryString
 
-In some cases, the fixed remote url is not good. You may need to add queryString to fetch diffrent remote contents (node moudle).  
+In some cases, the fixed remote url is not good. You may need to add queryString to fetch different remote contents (node module).  
 
 ### Example with queryString
 
 ###### Step 1. Provide an .ajs file
 
-The file contents of the `.ajs` file is a node moudle providing a remote url.      
-The follwoing is the example of it.   
+The file contents of the `.ajs` file is a node module providing a remote url.      
+The following is the example of it.   
    
 `remote-contents.ajs`
 ```js
@@ -123,14 +123,14 @@ The contents is a node module. It will be required to Node.js.
 
 ### Usage with preParser
 
-In some cases, the remote contents you fetch may `not be a pure node moudle`. You need a parser to do some stuffs before Node.js requires it. So you can set up a preParser for the remote contents.
+In some cases, the remote contents you fetch may `not be a pure node module`. You need a parser to do some stuffs before Node.js requires it. So you can set up a preParser for the remote contents.
 
 ### Example with preParser
 
 ###### Step 1. Provide an .ajs file
 
-The file contents of the `.ajs` file is a node moudle providing a remote url.      
-The follwoing is the example of it.   
+The file contents of the `.ajs` file is a node module providing a remote url.      
+The following is the example of it.   
    
 `remote-contents.ajs`
 ```
@@ -147,7 +147,7 @@ Require the files in this way. Pass a parameter `preParser` to it.
 ```js
 require("node-async-require").install({
 	preParser:function(remoteRawContent){
-		remoteRawContent = "module.exports=function(){ console.log('Replaceed by custom preParser!');}";
+		remoteRawContent = "module.exports=function(){ console.log('Replaced by custom preParser!');}";
             return remoteRawContent;
 	} //pass a parameter to it.
 });
@@ -157,14 +157,14 @@ require("./remote-contents.ajs");
 The original contents will be replaced by preParser.
 So the actual contents will be :
 ```js
-module.exports=function(){ console.log('Replaceed by custom preParser!');}
+module.exports=function(){ console.log('Replaced by custom preParser!');}
 ```
 The contents is a node module. It will be required to Node.js.
 
 
 ### Usage with preParser (React Templates)
 
-We provide a preparser for pasing react-templates contents.   
+We provide a pre-parser for parsing react-templates contents.   
 You can use it by setting the `preParser:"rt"`  
 
 ```js
@@ -179,8 +179,8 @@ require("./remote-contents-using-react-template.ajs");
 
 ###### Step 1. Provide an .ajs file
 
-The file contents of the `.ajs` file is a node moudle providing a remote url.      
-The follwoing is the example of it.   
+The file contents of the `.ajs` file is a node module providing a remote url.      
+The following is the example of it.   
    
 `remote-contents-using-react-template.ajs`
 
